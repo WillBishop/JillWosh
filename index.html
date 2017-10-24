@@ -1,0 +1,34 @@
+<title>Meme Generator</title>
+
+<body style="background-color:powderblue;">
+
+<font color="white"><h1 id="meme1" style="left:50%; margin-left:-300px; width:600px; margin-top:10px; position:absolute; font-family: Impact; text-shadow: #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px;"></h1></font>
+<font color="white"><h1 id="meme2" style="left:50%; margin-left:-300px; width:600px; margin-top:400px; position:absolute; font-family: Impact; text-shadow: #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px;"></h1></font>
+
+<center>
+<img id="image" style="height:500px; width:750px;">
+<br><br>
+<input type="file" id="upload" accept="image/*" style="width:90px;">
+<br><br>
+<button id="submit">Generate Meme</button>
+</center>
+
+</body>
+
+<script>
+document.getElementById("upload").onchange = function () {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        document.getElementById("image").src = e.target.result;
+    };
+    reader.readAsDataURL(this.files[0]);
+};
+document.getElementById("submit").onclick = function () {
+	part1 = ["There's only gonna be", "What is", "What happens when there are", "Who likes", "How can you eat all the", "Where are all the", "Who ate all the", "What happened to the", "Why would you say"]
+	part2 = ["7 planets", "dogs", "sad handjobs", "Russians", "Pedal Prix", "memes", "dreams", "dicks", "pussy", "pancakes", "Harambe memes", "dried up testicles", "Isaac", "Jesus impersonators"]
+	part3 = ["after I destroy", "without", "when someone kills", "when Bill Cosby shits on", "when you could eat out", "when you should kill", "after Isaac consumes", "because I gave birth to"]
+	part4 = ["Uranus", "Paul's shitty music", "an ugly chimpanzee", "your 6th grade maths teacher", "Harambe", "God", "Damo", "Mr Sterck", "your nan", "Toby's nan", "insultgenerator.tk", "riskyclick.tk"]
+	document.getElementById("meme1").innerHTML = part1[Math.floor(Math.random()*part1.length)] + " " + part2[Math.floor(Math.random()*part2.length)];
+	document.getElementById("meme2").innerHTML = part3[Math.floor(Math.random()*part3.length)] + " " + part4[Math.floor(Math.random()*part4.length)];
+}
+</script>
