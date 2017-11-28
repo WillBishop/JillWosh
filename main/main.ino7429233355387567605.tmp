@@ -1,6 +1,6 @@
 long lastCm = 10;
-//int count = 0;
-//int currentProcess = 0;
+int count = 0;
+int currentProcess = 0;
 
 void setup(){
   wheelSetup();
@@ -10,8 +10,8 @@ void setup(){
 } 
 
 void loop(){
-  /*
   count++;
+  moveSensor();
   switch (currentProcess) {
     case 0:
       moveForward();
@@ -33,9 +33,7 @@ void loop(){
       }
       break;
     case 11:
-      stopMoving();
       setTurn(true, false);
-      moveSensor();
       if (count > 200) {
         if (isObjectInFrontOfUs(10)) {
           currentProcess = 12;
@@ -47,9 +45,7 @@ void loop(){
       }
       break;
     case 12:
-      stopMoving();
       setTurn(false, true);
-      moveSensor();
       if (count > 200) {
         if (isObjectInFrontOfUs(10)) {
           currentProcess = 10;
@@ -61,9 +57,6 @@ void loop(){
       }
       break;
     case 10:
-      stopMoving();
-      setTurn(false, false);
-      moveSensor();
       if (count > 200) {
         if (isObjectInFrontOfUs(10)) {
           currentProcess = 11;
@@ -74,7 +67,6 @@ void loop(){
       }
       break;
   }
-  */
   /*
   Serial.println(count);
     moveSensor();    
@@ -91,12 +83,12 @@ void loop(){
     count = 0;
   }
   */
-    if (isObjectInFrontOfUs(10)) {
-        turnLeft();
-        delay(500);
-    } else {
-        moveForward();
-    }
+//    if (isObjectInFrontOfUs(10)) {
+//        turnLeft();
+//        delay(500);
+//    } else {
+//        moveForward();
+//    }
   /*
    long cm = getDistance();
    if (cm < 10 && lastCm < 10){

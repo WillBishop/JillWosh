@@ -91,12 +91,12 @@ void loop(){
     count = 0;
   }
   */
-    if (isObjectInFrontOfUs(10)) {
-        turnLeft();
-        delay(500);
-    } else {
-        moveForward();
-    }
+//    if (isObjectInFrontOfUs(10)) {
+//        turnLeft();
+//        delay(500);
+//    } else {
+//        moveForward();
+//    }
   /*
    long cm = getDistance();
    if (cm < 10 && lastCm < 10){

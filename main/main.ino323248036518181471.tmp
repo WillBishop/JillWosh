@@ -1,6 +1,6 @@
 long lastCm = 10;
-//int count = 0;
-//int currentProcess = 0;
+int count = 0;
+String currentProcess = "movingForward";
 
 void setup(){
   wheelSetup();
@@ -10,71 +10,58 @@ void setup(){
 } 
 
 void loop(){
-  /*
   count++;
   switch (currentProcess) {
-    case 0:
+    case "movingForward":
       moveForward();
       if (isObjectInFrontOfUs(10)) {
-        currentProcess = 11;
+        currentProcess = "movingSensorLeft";
         count = 0;
       }
       break;
-    case 1:
-      turnLeft();
-      if (count > 100) {
-         currentProcess = 0;
+    case "turningLeft":
+      break;
+    case "turningRight":
+      if (count > 500) {
+         
       }
       break;
-    case 2:
-      turnRight();
-      if (count > 100) {
-         currentProcess = 0;
-      }
-      break;
-    case 11:
-      stopMoving();
-      setTurn(true, false);
-      moveSensor();
+    case "movingSensorLeft":
+      moveSensorLeft();
       if (count > 200) {
         if (isObjectInFrontOfUs(10)) {
-          currentProcess = 12;
+          currentProcess = "movingSensorRight";
           count = 0;
         } else {
-          currentProcess = 1;
+          currentProcess = "turningLeft";
           count = 0;          
         }          
       }
       break;
-    case 12:
-      stopMoving();
-      setTurn(false, true);
-      moveSensor();
+    case "movingSensorRight":
+      moveSensorRight();
       if (count > 200) {
         if (isObjectInFrontOfUs(10)) {
-          currentProcess = 10;
+          currentProcess = "movingSensorStraightOn";
           count = 0;
         } else {
-          currentProcess = 2;
+          currentProcess = "turningRight";
           count = 0;          
         }        
       }
       break;
-    case 10:
-      stopMoving();
-      setTurn(false, false);
-      moveSensor();
+    case "movingSensorStraightOn":
+      moveSensorStraightOn();
       if (count > 200) {
         if (isObjectInFrontOfUs(10)) {
-          currentProcess = 11;
+          currentProcess = "movingSensorLeft";
           count = 0;
         } else {
-          currentProcess = 0;          
+          currentProcess = "movingForward";          
         }
       }
       break;
   }
-  */
   /*
   Serial.println(count);
     moveSensor();    
@@ -91,12 +78,12 @@ void loop(){
     count = 0;
   }
   */
-    if (isObjectInFrontOfUs(10)) {
-        turnLeft();
-        delay(500);
-    } else {
-        moveForward();
-    }
+//    if (isObjectInFrontOfUs(10)) {
+//        turnLeft();
+//        delay(500);
+//    } else {
+//        moveForward();
+//    }
   /*
    long cm = getDistance();
    if (cm < 10 && lastCm < 10){
